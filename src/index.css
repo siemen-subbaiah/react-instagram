@@ -1,13 +1,153 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* LANDING PAGE! */
+.landing {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.landing-img {
+  height: 700px !important;
+}
+
+.cred-area {
+  background-color: #ffffff !important;
+  padding: 1.5rem;
+  width: 35%;
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border-radius: 1px;
+}
+
+.logo {
+  height: 70px !important;
+}
+
+/* HEADER! */
+
+.app__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  padding: 12px;
+  object-fit: contain;
+  border-bottom: 1px solid lightgray;
+}
+
+.app__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app__headerImage2 {
+  width: 150px;
+  object-fit: contain;
+}
+
+/* POST! */
+
+.post {
+  background-color: white;
+  max-width: 600px;
+  border: 1px solid lightgray;
+  margin: 1rem auto;
+}
+
+.post__image {
+  width: 100%;
+}
+
+.post__caption {
+  font-weight: normal;
+  padding: 10px;
+}
+
+.post__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.post__avatar {
+  margin-right: 10px;
+  background-color: rgb(139, 41, 139) !important;
+}
+
+.post__bookmark {
+  float: right;
+  margin: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.single-icons {
+  margin: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.post__comment {
+  display: flex;
+  margin-top: 10px;
+}
+
+.post__comment-input {
+  flex: 1;
+  border: none;
+  padding: 7px 10px;
+  border-top: 1px solid lightgray;
+  outline: none;
+}
+
+.post__comment-button {
+  flex: 0;
+  border: none;
+  color: white;
+  border-top: 1px solid lightgray;
+  padding: 7px 10px;
+}
+
+.comment-h {
+  color: #8e8e8e;
+}
+
+.time {
+  font-size: 0.75rem;
+}
+
+/* FILE UPLOAD! */
+
+.file-upload {
+  color: #0069d9;
+  font-size: 2rem !important;
+}
+.avt {
+  background-color: rgb(139, 41, 139) !important;
+}
+
+@media (max-width: 600px) {
+  .cred-area {
+    width: 100%;
+  }
+  .app__flex {
+    flex-direction: column;
+  }
+  .makeStyles-paper-2 {
+    width: 90% !important;
+  }
 }
