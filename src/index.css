@@ -139,10 +139,14 @@ body {
 
 .file-upload {
   color: #0069d9;
-  font-size: 2rem !important;
+  font-size: 3rem !important;
 }
 .avt {
   background-color: rgb(139, 41, 139) !important;
+}
+
+.img-preview {
+  height: 50px;
 }
 
 @media (max-width: 600px) {
@@ -155,7 +159,7 @@ body {
   .jss2 {
     width: 90% !important;
   }
-  .makeStyles-paper-4 {
+  .jss4 {
     width: 90% !important;
   }
 }

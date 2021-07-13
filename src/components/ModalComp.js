@@ -33,6 +33,7 @@ const ModalComp = ({ open, setOpen }) => {
   const [caption, setCaption] = useState('');
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
 
   const handleClose = () => {
     setOpen(false);
@@ -41,6 +42,7 @@ const ModalComp = ({ open, setOpen }) => {
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
+      setImagePreview(URL.createObjectURL(e.target.files[0]));
     }
   };
 
@@ -76,6 +78,7 @@ const ModalComp = ({ open, setOpen }) => {
               setProgress(0);
               setCaption('');
               setImage(null);
+              setImagePreview('');
               setOpen(false);
             });
         }
@@ -114,6 +117,7 @@ const ModalComp = ({ open, setOpen }) => {
                     <span className='MuiFab-label'>
                       <AddPhotoAlternateIcon className='file-upload' />
                     </span>
+
                     <span className='MuiTouchRipple-root'></span>
                   </span>
                 </label>
@@ -124,6 +128,9 @@ const ModalComp = ({ open, setOpen }) => {
                   style={{ display: 'none' }}
                   onChange={handleChange}
                 ></input>
+              </div>
+              <div className='text-center my-2'>
+                <img src={imagePreview} alt='' className='img-preview' />
               </div>
               {/* <progress value={progress} max='100' style={{ width: '100%' }} /> */}
               <LinearProgress
