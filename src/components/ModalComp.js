@@ -152,6 +152,7 @@ const ModalComp = ({ open, setOpen }) => {
                 variant='primary'
                 size='sm'
                 className='btn-block'
+                type='submit'
                 onClick={handleUpload}
               >
                 Post
