@@ -1,1 +1,1 @@
-## React Instagram partial clone
+## React Instagram partial clone using firebase
