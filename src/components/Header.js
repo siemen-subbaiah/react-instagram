@@ -12,7 +12,7 @@ const Header = ({ handleOpen }) => {
         <img className='app__headerImage2' src={instagram} alt='logo' />
         <div className='d-flex btns my-2 my-lg-0'>
           <Avatar className='avt mr-3'>
-            {authUser.displayName.charAt(0).toUpperCase()}
+            {authUser?.displayName?.charAt(0).toUpperCase()}
           </Avatar>
           <Button
             className='mr-2'

@@ -71,6 +71,7 @@ const ModalComp = ({ open, setOpen }) => {
                 caption: caption,
                 image: url,
                 username: authUser.displayName,
+                authId: authUser.uid,
               });
               setProgress(0);
               setCaption('');

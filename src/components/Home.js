@@ -37,6 +37,7 @@ const Home = () => {
               caption={post.post.caption}
               username={post.post.username}
               timestap={post.post.timestap}
+              authId={post.post.authId}
             />
           );
         })

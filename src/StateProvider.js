@@ -23,15 +23,18 @@ const StateProvider = ({ children }) => {
     dispatch({ type: 'LOADING' });
     db.collection('posts')
       .orderBy('timestap', 'desc')
-      .onSnapshot((snapshot) => {
-        dispatch({
-          type: 'GET_POSTS',
-          payload: snapshot.docs.map((doc) => ({
-            id: doc.id,
-            post: doc.data(),
-          })),
-        });
-      });
+      .onSnapshot(
+        (snapshot) => {
+          dispatch({
+            type: 'GET_POSTS',
+            payload: snapshot.docs.map((doc) => ({
+              id: doc.id,
+              post: doc.data(),
+            })),
+          });
+        },
+        (err) => console.log(err.message)
+      );
   };
 
   const signinUser = async (email, password, username) => {
