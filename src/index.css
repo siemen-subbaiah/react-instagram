@@ -135,6 +135,17 @@ body {
   font-size: 0.75rem;
 }
 
+.post-meta-share-icons {
+  text-align: center;
+}
+
+.social-icon {
+  font-size: 2rem;
+  margin: 1rem;
+  text-align: center;
+  color: #0069d9;
+}
+
 /* FILE UPLOAD! */
 
 .file-upload {
@@ -160,6 +171,9 @@ body {
     width: 90% !important;
   }
   .jss4 {
+    width: 90% !important;
+  }
+  .jss14 {
     width: 90% !important;
   }
 }

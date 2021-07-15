@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Avatar } from '@material-ui/core';
+import React, { useContext, useRef } from 'react';
+import { Avatar, Button } from '@material-ui/core';
 import { BsBookmark, BsHeart } from 'react-icons/bs';
 import { FaRegComment } from 'react-icons/fa';
 import { FiMoreHorizontal } from 'react-icons/fi';
@@ -13,6 +13,7 @@ import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
+import ShareButtons from './Share-buttons';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -36,6 +37,8 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
   const { authUser } = useContext(StateContext);
+
+  const refContainer = useRef(null);
 
   const [open, setOpen] = React.useState(false);
 
@@ -75,6 +78,10 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
   const handleDelete = () => {
     db.collection('posts').doc(id).delete();
     setOpen(false);
+  };
+
+  const handleCommentLaunch = () => {
+    refContainer.current.focus();
   };
 
   return (
@@ -120,8 +127,36 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
       <img className='post__image' src={img} alt='insta-pic' />
       <div className='post__icons'>
         <BsHeart className='single-icons' />
-        <FaRegComment className='single-icons' />
-        <RiShareBoxFill className='single-icons' />
+        <FaRegComment className='single-icons' onClick={handleCommentLaunch} />
+        <RiShareBoxFill className='single-icons' onClick={handleOpen} />
+        <Modal
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <div className={classes.paper}>
+            <ShareButtons
+              link={img}
+              url='https://react-instagram-clone-firebase.netlify.app/'
+              title={caption}
+              description={caption}
+            />
+            <div className='d-flex justify-content-center my-3'>
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={() => setOpen(false)}
+              >
+                Close
+              </Button>
+            </div>
+          </div>
+        </Modal>
         <BsBookmark className='post__bookmark' />
       </div>
       <h6 className='post__caption'>
@@ -143,6 +178,7 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
           className='post__comment-input'
           type='text'
           placeholder='enter comment'
+          ref={refContainer}
           value={comment}
           onChange={(event) => setComment(event.target.value)}
         />
