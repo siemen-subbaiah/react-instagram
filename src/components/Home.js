@@ -27,20 +27,21 @@ const Home = () => {
       {loading ? (
         <Spinner />
       ) : (
-        posts &&
-        posts.map((post, i) => {
-          return (
-            <Posts
-              key={i}
-              id={post.id}
-              img={post.post.image}
-              caption={post.post.caption}
-              username={post.post.username}
-              timestap={post.post.timestap}
-              authId={post.post.authId}
-            />
-          );
-        })
+        <section className='all-posts'>
+          {posts?.map((post, i) => {
+            return (
+              <Posts
+                key={i}
+                id={post.id}
+                img={post.post.image}
+                caption={post.post.caption}
+                username={post.post.username}
+                timestap={post.post.timestap}
+                authId={post.post.authId}
+              />
+            );
+          })}
+        </section>
       )}
     </div>
   );

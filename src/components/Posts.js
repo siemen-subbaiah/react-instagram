@@ -82,7 +82,7 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
       <div className='post__header'>
         <div className='d-flex align-items-center'>
           <Avatar className='post__avatar'>
-            {username.charAt(0).toUpperCase()}
+            {username?.charAt(0).toUpperCase()}
           </Avatar>
           <h6>{username}</h6>
         </div>
