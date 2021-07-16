@@ -41,6 +41,7 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
   const refContainer = useRef(null);
 
   const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,6 +49,14 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleOpen2 = () => {
+    setOpen2(true);
+  };
+
+  const handleClose2 = () => {
+    setOpen2(false);
   };
 
   useEffect(() => {
@@ -128,11 +137,11 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
       <div className='post__icons'>
         <BsHeart className='single-icons' />
         <FaRegComment className='single-icons' onClick={handleCommentLaunch} />
-        <RiShareBoxFill className='single-icons' onClick={handleOpen} />
+        <RiShareBoxFill className='single-icons' onClick={handleOpen2} />
         <Modal
           className={classes.modal}
-          open={open}
-          onClose={handleClose}
+          open={open2}
+          onClose={handleClose2}
           closeAfterTransition
           BackdropComponent={Backdrop}
           BackdropProps={{
@@ -150,7 +159,7 @@ const Posts = ({ username, img, caption, id, timestap, authId }) => {
               <Button
                 variant='contained'
                 color='primary'
-                onClick={() => setOpen(false)}
+                onClick={() => setOpen2(false)}
               >
                 Close
               </Button>
